@@ -18,16 +18,16 @@ import (
 func TestGetHeapsterURL(t *testing.T) {
 	cs := fake.NewSimpleClientset()
 	// nolint dupl
-	t.Run("Ensure that heapster pod is found in the kube-system namespace", func(t *testing.T) {
+	t.Run("Ensure that heapster pod is found in the cloudability namespace", func(t *testing.T) {
 
 		pod := &v1.Pod{
 			ObjectMeta: metav1.ObjectMeta{
 				Name:      "heapster",
-				Namespace: "kube-system",
-				SelfLink:  "/api/v1/namespaces/kube-system/pods/heapster-6d9d49d496-5scrb",
+				Namespace: "cloudability",
+				SelfLink:  "/api/v1/namespaces/cloudability/pods/heapster-6d9d49d496-5scrb",
 			},
 		}
-		_, _ = cs.CoreV1().Pods("kube-system").Create(context.TODO(), pod, metav1.CreateOptions{})
+		_, _ = cs.CoreV1().Pods("cloudability").Create(context.TODO(), pod, metav1.CreateOptions{})
 
 		clusterHostURL := "http://locahost"
 
@@ -36,21 +36,21 @@ func TestGetHeapsterURL(t *testing.T) {
 			t.Error(err)
 		}
 		if url.Host != "http://localhost" &&
-			url.Path != "/api/v1/namespaces/kube-system/pods/heapster-6d9d49d496-5scrb:8082/proxy/api/v1/metric-export" {
+			url.Path != "/api/v1/namespaces/cloudability/pods/heapster-6d9d49d496-5scrb:8082/proxy/api/v1/metric-export" {
 			t.Errorf("Error getting heapster pod url: %v", err)
 		}
 	})
 	// nolint dupl
-	t.Run("Ensure that heapster service is found in the kube-system namespace", func(t *testing.T) {
+	t.Run("Ensure that heapster service is found in the cloudability namespace", func(t *testing.T) {
 
 		service := &v1.Service{
 			ObjectMeta: metav1.ObjectMeta{
 				Name:      "heapster",
-				Namespace: "kube-system",
-				SelfLink:  "/api/v1/namespaces/kube-system/services/heapster",
+				Namespace: "cloudability",
+				SelfLink:  "/api/v1/namespaces/cloudability/services/heapster",
 			},
 		}
-		_, _ = cs.CoreV1().Services("kube-system").Create(context.TODO(), service, metav1.CreateOptions{})
+		_, _ = cs.CoreV1().Services("cloudability").Create(context.TODO(), service, metav1.CreateOptions{})
 
 		clusterHostURL := "http://locahost"
 
@@ -59,7 +59,7 @@ func TestGetHeapsterURL(t *testing.T) {
 			t.Error(err)
 		}
 		if url.Host != "http://localhost" &&
-			url.Path != "/api/v1/namespaces/kube-system/services/heapster/proxy/api/v1/metric-export" {
+			url.Path != "/api/v1/namespaces/cloudability/services/heapster/proxy/api/v1/metric-export" {
 			t.Errorf("Error getting heapster service url: %v", err)
 		}
 	})

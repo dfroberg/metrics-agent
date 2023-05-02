@@ -13,7 +13,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: metrics-agents
-  namespace: kube-system
+  namespace: cloudability
 rules:
 - apiGroups:
   - ""
@@ -54,7 +54,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: metrics-agents
-  namespace: kube-system
+  namespace: cloudability
 subjects:
 - kind: ServiceAccount
   name: cloudability
