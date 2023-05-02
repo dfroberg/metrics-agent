@@ -1,4 +1,4 @@
-module github.com/cloudability/metrics-agent
+module github.com/dfroberg/metrics-agent
 
 go 1.19
 

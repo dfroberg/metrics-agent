@@ -21,12 +21,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/cloudability/metrics-agent/client"
-	"github.com/cloudability/metrics-agent/measurement"
-	k8s_stats "github.com/cloudability/metrics-agent/retrieval/k8s"
-	"github.com/cloudability/metrics-agent/retrieval/raw"
-	"github.com/cloudability/metrics-agent/util"
-	cldyVersion "github.com/cloudability/metrics-agent/version"
+	"github.com/dfroberg/metrics-agent/client"
+	"github.com/dfroberg/metrics-agent/measurement"
+	k8s_stats "github.com/dfroberg/metrics-agent/retrieval/k8s"
+	"github.com/dfroberg/metrics-agent/retrieval/raw"
+	"github.com/dfroberg/metrics-agent/util"
+	cldyVersion "github.com/dfroberg/metrics-agent/version"
 	log "github.com/sirupsen/logrus"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -213,7 +213,7 @@ func performConnectionChecks(ka *KubeAgentConfig) error {
 
 	cldyMetricClient, err := client.NewHTTPMetricClient(client.Configuration{
 		Token:         ka.APIKey,
-		Verbose:       false,
+		Verbose:       true,
 		ProxyURL:      ka.OutboundProxyURL,
 		ProxyAuth:     ka.OutboundProxyAuth,
 		ProxyInsecure: ka.OutboundProxyInsecure,
@@ -390,7 +390,7 @@ func updateNodeBaselines(msd, exportDirectory string) error {
 func (ka KubeAgentConfig) sendMetrics(metricSample *os.File) {
 	cldyMetricClient, err := client.NewHTTPMetricClient(client.Configuration{
 		Token:         ka.APIKey,
-		Verbose:       false,
+		Verbose:       true,
 		ProxyURL:      ka.OutboundProxyURL,
 		ProxyAuth:     ka.OutboundProxyAuth,
 		ProxyInsecure: ka.OutboundProxyInsecure,

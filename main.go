@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/cloudability/metrics-agent/cmd"
+	"github.com/dfroberg/metrics-agent/cmd"
 )
 
 func main() {

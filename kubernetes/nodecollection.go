@@ -12,8 +12,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/cloudability/metrics-agent/retrieval/raw"
-	"github.com/cloudability/metrics-agent/util"
+	"github.com/dfroberg/metrics-agent/retrieval/raw"
+	"github.com/dfroberg/metrics-agent/util"
 	log "github.com/sirupsen/logrus"
 
 	v1 "k8s.io/api/core/v1"

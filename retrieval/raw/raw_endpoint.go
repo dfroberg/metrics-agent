@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/cloudability/metrics-agent/util"
+	"github.com/dfroberg/metrics-agent/util"
 	log "github.com/sirupsen/logrus"
 )
 
