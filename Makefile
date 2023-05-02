@@ -5,7 +5,7 @@ EXEC_CHECK := $(foreach exec,$(EXECUTABLES), \
 
 GOLANG_VERSION?=1.19
 REPO_DIR:=$(shell pwd)
-PREFIX=cloudability
+PREFIX=dfroberg #cloudability
 CLDY_API_KEY=${CLOUDABILITY_API_KEY}
 PLATFORM?=linux/amd64
 PLATFORM_TAG?=amd64
