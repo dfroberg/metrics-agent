@@ -17,7 +17,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk monitor
-        run: snyk monitor --org=cloudability
+        run: snyk monitor --org=dfroberg
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
