@@ -44,7 +44,7 @@ const uploadFileHash = "x-upload-file"
 const contentMD5 = "Content-MD5"
 const proxyAuthHeader = "Proxy-Authorization"
 
-var validToken = regexp.MustCompile(/^[a-zA-Z0-9!=:_\-]+$/);
+var validToken = regexp.MustCompile(`/^[a-zA-Z0-9!=:_\-]+$/`)
 
 // Configuration represents configurable values for the Cloudability Client
 type Configuration struct {
